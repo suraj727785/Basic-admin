@@ -1,26 +1,43 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
+import AnotherPage from "../views/AnotherPage.vue";
+import Login from "../views/Login.vue";
+import store from "../store/index";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Dashboard",
-    component: Dashboard,
+    name: "Login",
+    component: Login,
   },
   {
     path: "/another",
     name: "AnotherPage",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AnotherPage.vue"),
+    component: AnotherPage,
+    beforeEnter: (to, from, next) => {
+      if (store.state.authenticated == false) {
+        next("/");
+      } else {
+        next();
+      }
+    },
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard,
+    beforeEnter: (to, from, next) => {
+      if (store.state.authenticated == false) {
+        next("/");
+      } else {
+        next();
+      }
+    },
   },
 ];
-
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
