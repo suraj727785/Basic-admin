@@ -1,7 +1,7 @@
 <template>
   <div class="admin">
     <header class="admin__header">
-      <a href="/viewAllJobs">
+      <a href="/">
         <img class="logo" src="../assets/logo.png" alt="" />
       </a>
     </header>

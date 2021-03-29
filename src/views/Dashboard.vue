@@ -1,17 +1,19 @@
 <template>
   <div class="admin">
     <header class="admin__header">
-      <a href="/viewAllJobs">
+      <a href="/">
         <img class="logo" src="../assets/logo.png" alt="" />
       </a>
     </header>
     <nav class="admin__nav">
       <ul class="menu">
         <li class="menu__item">
-          <a class="menu_link" href="/">Dashboard</a> |
+          <router-link class="menu_link" to="/">Dashboard</router-link> |
         </li>
         <li class="menu__item">
-          <a class="menu_link" href="/another">Another Page</a>
+          <router-link class="menu_link" to="/another"
+            >Another Page</router-link
+          >
         </li>
       </ul>
     </nav>
