@@ -51,7 +51,6 @@
 	background-color: #1d2127;
 }
 .dashboard {
-	--column-count: 2;
 	display: flex;
 	margin: 0 calc(var(--spacing) * -0.5);
 	flex-direction: row;
@@ -66,7 +65,6 @@
 	position: relative;
 	margin: 0;
 	color: #fff;
-	background-color: #dc5a60;
 	font-size: 1rem;
 }
 .menu {
