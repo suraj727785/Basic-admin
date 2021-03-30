@@ -5,9 +5,9 @@
         <img class="logo" src="../assets/logo.png" alt="" />
       </a>
       <div class="logout">
-        <a class="btn btn-indigo" href="https://www.google.co.in/"> Google </a>
+        <a class="btn btn-indigo" href="https://www.google.co.in/"> Menu1 </a>
         <a class="btn btn-indigo" href="https://www.instagram.com/">
-          instagram
+          Menu2
         </a>
         <button class="btn btn-indigo" type="submit" @click="handleLogout">
           Logout
