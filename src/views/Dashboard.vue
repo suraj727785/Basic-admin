@@ -6,9 +6,7 @@
       </a>
       <div class="logout">
         <a class="btn btn-indigo" href="https://www.google.co.in/"> Menu1 </a>
-        <a class="btn btn-indigo" href="https://www.instagram.com/">
-          Menu2
-        </a>
+        <a class="btn btn-indigo" href="https://www.instagram.com/"> Menu2 </a>
         <button class="btn btn-indigo" type="submit" @click="handleLogout">
           Logout
         </button>
