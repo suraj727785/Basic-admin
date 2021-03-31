@@ -5,7 +5,7 @@
         <img class="logo" src="../assets/logo.png" alt="" />
       </a>
       <div class="logout">
-        <a class="btn btn-indigo" href="#popup2"> Menu1 </a>
+        <a class="btn btn-indigo" href="https://www.google.com/"> Menu1 </a>
         <a class="btn btn-indigo" href="https://www.instagram.com/"> Menu2 </a>
         <button class="btn btn-indigo" type="submit" @click="handleLogout">
           Logout
