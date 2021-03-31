@@ -1,7 +1,7 @@
 <template>
   <div class="admin">
     <header class="admin__header">
-      <a href="/">
+      <a href="/dashboard">
         <img class="logo" src="../assets/logo.png" alt="" />
       </a>
       <div class="logout">
@@ -10,7 +10,27 @@
         </button>
       </div>
     </header>
-    <nav class="admin__nav">
+    <nav class="nav_select">
+      <div class="nav_icon">
+        <a href="#popup2">
+          <font-awesome-icon
+            size="2x"
+            color="black"
+            :icon="['fas', 'arrow-right']"
+          />
+        </a>
+      </div>
+    </nav>
+    <nav id="popup2" class="admin__nav">
+      <div class="nav_close">
+        <a href="#">
+          <font-awesome-icon
+            size="2x"
+            color="black"
+            :icon="['fas', 'times-circle']"
+          />
+        </a>
+      </div>
       <ul class="menu">
         <li class="menu__item">
           <router-link class="menu_link" to="/dashboard">Dashboard</router-link>
@@ -52,6 +72,7 @@ export default {
     handleLogout(e) {
       e.preventDefault();
       this.$store.commit("setAuthentication", false);
+      localStorage.setItem("setAuthentication", "no");
       this.$router.push("/");
     },
   },

@@ -5,13 +5,14 @@ import "./plugins/bootstrap-vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import { vsButton, vsSelect, vsPopup } from "vuesax";
-import "vuesax/dist/vuesax.css";
-import "material-icons/iconfont/material-icons.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-Vue.use(vsButton);
-Vue.use(vsSelect);
-Vue.use(vsPopup);
+library.add(fas);
+
+Vue.component("font-awesome-icon", FontAwesomeIcon);
+
 Vue.config.productionTip = false;
 new Vue({
   router,

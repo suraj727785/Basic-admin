@@ -41,6 +41,7 @@ export default {
       e.preventDefault();
       if (this.email.length > 0 && this.password.length > 0) {
         this.$store.commit("setAuthentication", true);
+        localStorage.setItem("setAuthentication", "done");
         this.$router.push("dashboard");
       }
     },

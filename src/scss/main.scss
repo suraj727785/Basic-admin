@@ -30,6 +30,23 @@
 	grid-area: nav;
 	background-color: #313541;
 	margin-top: 50px;
+	visibility: hidden;
+}
+.nav_select {
+	grid-area: nav;
+	background-color:#f4f7fa;
+}
+.nav_icon {
+	float: left;
+	margin-top: 210px;
+}
+.nav_close {
+	float: right;
+	margin-right: 5px;
+	margin-top: 10px;
+}
+.admin__nav:target{
+	visibility: visible;
 }
 .admin__main {
 	flex: 1;
