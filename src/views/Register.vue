@@ -130,6 +130,7 @@ export default {
       error: {
         fnameError: false,
         lnameError: false,
+        emailError: false,
         pincodeError: false,
       },
     };
