@@ -10,6 +10,7 @@
             type="text"
             name="fname"
             id="fname"
+            @change="fnameChange"
             v-model="fname"
             required
             autofocus
@@ -28,6 +29,7 @@
             type="text"
             id="lname"
             name="lname"
+            @change="lnameChange"
             v-model="lname"
             required
             autofocus
@@ -58,9 +60,10 @@
           <label for="pincode" class="grey-text">Pincode</label>
           <input
             class="form-control"
-            type="text"
+            type="number"
             name="pincode"
             id="pincode"
+            @change="pinChange"
             v-model="pincode"
             required
           />
@@ -125,12 +128,11 @@ export default {
       lname: "",
       email: "",
       address: "",
-      pincode: 123456,
+      pincode: 100001,
       imageUrl: null,
       error: {
         fnameError: false,
         lnameError: false,
-        emailError: false,
         pincodeError: false,
       },
     };
@@ -139,23 +141,11 @@ export default {
     handleSubmit(e) {
       e.preventDefault();
       if (
-        !/\d/.test(this.fname) &&
-        !/\d/.test(this.lname) &&
-        this.pincode < 1000000
+        !this.error["fnameError"] &&
+        !this.error["lnameError"] &&
+        !this.error["pincodeError"]
       ) {
-        this.error["fnameError"] = false;
-        this.error["lnameError"] = false;
-        this.error["pincodeError"] = false;
         alert("Form Submitted Successfully");
-      }
-      if (/\d/.test(this.fname)) {
-        this.error["fnameError"] = true;
-      }
-      if (/\d/.test(this.lname)) {
-        this.error["lnameError"] = true;
-      }
-      if (this.pincode > 999999) {
-        this.error["pincodeError"] = true;
       }
     },
     clearError() {
@@ -167,6 +157,30 @@ export default {
     onFileChange(e) {
       const file = e.target.files[0];
       this.imageUrl = URL.createObjectURL(file);
+    },
+    fnameChange(e) {
+      if (!/\d/.test(e.target.value)) {
+        this.error["fnameError"] = false;
+      }
+      if (/\d/.test(e.target.value)) {
+        this.error["fnameError"] = true;
+      }
+    },
+    lnameChange(e) {
+      if (!/\d/.test(e.target.value)) {
+        this.error["lnameError"] = false;
+      }
+      if (/\d/.test(e.target.value)) {
+        this.error["lnameError"] = true;
+      }
+      console.log(this.error["lnameError"]);
+    },
+    pinChange(e) {
+      if (e.target.value > 999999 || e.target.value < 100000) {
+        this.error["pincodeError"] = true;
+      } else {
+        this.error["pincodeError"] = false;
+      }
     },
   },
 };
